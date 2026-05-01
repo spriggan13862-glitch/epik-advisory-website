@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Epik Advisory — Website Wireframe</title>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #1a1a1a; font-family: 'Libre Baskerville', Georgia, serif; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 24px; }
+</style>
+</head>
+<body>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="browser-window.jsx"></script>
+
+<script type="text/babel">
+
+// ── Brand tokens ───────────────────────────────────────────────────────────
+const C = {
+  black:   '#0c0c0c',
+  off:     '#f7f6f2',
+  charcoal:'#2a2a2a',
+  mid:     '#5a5a5a',
+  light:   '#d0cec8',
+  gold:    '#a08c6e',
+  goldLight:'#c8b48e',
+  white:   '#ffffff',
+};
+
+const serif = "'Libre Baskerville', Georgia, serif";
+const sketch = "'Jost', 'Helvetica Neue', Arial, sans-serif";
+
+// ── Primitives ──────────────────────────────────────────────────────────────
+
+const Img = ({ w='100%', h=200, label, style }) => (
+  <div style={{ width:w, height:h, background:'#ddd', border:`1px solid ${C.light}`, position:'relative', overflow:'hidden', flexShrink:0, ...style }}>
+    <svg width="100%" height="100%" style={{position:'absolute',top:0,left:0}}>
+      <line x1="0" y1="0" x2="100%" y2="100%" stroke="#bbb" strokeWidth="1"/>
+      <line x1="100%" y1="0" x2="0" y2="100%" stroke="#bbb" strokeWidth="1"/>
+    </svg>
+    {label && <div style={{position:'absolute',bottom:8,left:0,right:0,textAlign:'center',fontFamily:sketch,fontSize:13,color:'#888'}}>{label}</div>}
+  </div>
+);
+
+const Lines = ({ n=3, style }) => (
+  <div style={{ display:'flex', flexDirection:'column', gap:6, ...style }}>
+    {Array.from({length:n}).map((_,i) => (
+      <div key={i} style={{ height:9, background:'#ccc', borderRadius:1, width: i===n-1 ? '60%' : '100%' }} />
+    ))}
+  </div>
+);
+
+const Rule = ({ style }) => <div style={{ borderBottom:`1px solid ${C.light}`, ...style }} />;
+const ThinRule = ({ style }) => <div style={{ borderBottom:`1px solid #e2e0d8`, ...style }} />;
+
+const Label = ({ children, style }) => (
+  <div style={{ fontFamily:sketch, fontSize:11, fontWeight:500, color:C.gold, letterSpacing:3, textTransform:'uppercase', marginBottom:12, ...style }}>{children}</div>
+);
+
+const H1 = ({ children, style }) => (
+  <div style={{ fontFamily:serif, fontSize:48, fontWeight:700, color:C.black, lineHeight:1.1, ...style }}>{children}</div>
+);
+
+const H2 = ({ children, style }) => (
+  <div style={{ fontFamily:serif, fontSize:32, fontWeight:700, color:C.black, lineHeight:1.2, ...style }}>{children}</div>
+);
+
+const H3 = ({ children, style }) => (
+  <div style={{ fontFamily:serif, fontSize:20, fontWeight:700, color:C.black, lineHeight:1.3, ...style }}>{children}</div>
+);
+
+const Body = ({ children, style }) => (
+  <div style={{ fontSize:14, color:C.mid, lineHeight:1.75, ...style }}>{children}</div>
+);
+
+const Btn = ({ label, dark=false, style }) => (
+  <div style={{ display:'inline-block', padding:'12px 28px',
+    background: dark ? C.black : 'transparent',
+    color: dark ? C.white : C.black,
+    border: `1px solid ${dark ? C.black : C.black}`,
+    fontFamily:serif, fontSize:13, letterSpacing:1, cursor:'default', ...style }}>
+    {label}
+  </div>
+);
+
+// ── Site Navigation ──────────────────────────────────────────────────────────
+
+const SiteNav = ({ activePage, setPage }) => {
+  const links = ['Home','Services','Situations','About','Contact'];
+  return (
+    <div style={{ borderBottom:`1px solid ${C.light}`, background:C.white }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 48px', display:'flex', alignItems:'center', justifyContent:'space-between', height:96 }}>
+        {/* Logo — image with CSS flat-gold fallback */}
+        <div style={{ display:'flex', alignItems:'center' }}>
+          <img
+            src="assets/logo-full.png"
+            style={{ height:80, width:'auto', display:'block' }}
+            alt="Epik Advisory"
+            onError={e => { e.target.style.display='none'; e.target.nextSibling.style.display='block'; }}
+          />
+          <div style={{ display:'none', textAlign:'center' }}>
+            <div style={{ fontFamily:"'Libre Baskerville',Georgia,serif", fontSize:28, letterSpacing:6, fontWeight:700, background:'linear-gradient(180deg,#e8c96a 0%,#a07830 50%,#c8a84a 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1 }}>EPIK</div>
+            <div style={{ fontFamily:"'Libre Baskerville',Georgia,serif", fontSize:18, letterSpacing:4, fontWeight:700, background:'linear-gradient(180deg,#e8c96a 0%,#a07830 50%,#c8a84a 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1.1 }}>ADVISORY</div>
+          </div>
+        </div>
+        {/* Links */}
+        <div style={{ display:'flex', gap:36, alignItems:'center' }}>
+          {links.map(l => (
+            <div key={l} onClick={()=>setPage(l)} style={{ fontFamily:serif, fontSize:13, letterSpacing:1, color: activePage===l ? C.black : C.mid, borderBottom: activePage===l ? `1px solid ${C.gold}` : '1px solid transparent', paddingBottom:2, cursor:'pointer' }}>
+              {l.toUpperCase()}
+            </div>
+          ))}
+        </div>
+        <div onClick={()=>setPage('Contact')} style={{ display:'inline-block', padding:'10px 22px', background:C.black, color:C.white, border:`1px solid ${C.black}`, fontFamily:serif, fontSize:12, letterSpacing:1, cursor:'pointer' }}>SPEAK WITH US</div>
+      </div>
+    </div>
+  );
+};
+
+// ── HOMEPAGE ────────────────────────────────────────────────────────────────
+
+const HomePage = () => (
+  <div style={{ background:C.off }}>
+    {/* Hero */}
+    <div style={{ background:C.black, color:C.white, position:'relative', overflow:'hidden' }}>
+      {/* Compass texture background */}
+      <div style={{ position:'absolute', top:'50%', right:'-5%', transform:'translateY(-50%)', width:700, height:700, opacity:0.06, backgroundImage:"url('assets/logo-compass.png')", backgroundSize:'contain', backgroundRepeat:'no-repeat', backgroundPosition:'center', pointerEvents:'none' }} />
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'96px 48px 80px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center', position:'relative' }}>
+        <div>
+          <div style={{ fontFamily:sketch, fontSize:11, fontWeight:500, color:C.gold, letterSpacing:3, marginBottom:24 }}>DEAL ADVISORY · RESTRUCTURING · FRACTIONAL CFO</div>
+          <H1 style={{ color:C.white, fontSize:52, marginBottom:24 }}>
+            When the stakes are<br/>high, call us first.
+          </H1>
+          <Body style={{ color:'#aaa', fontSize:15, marginBottom:36, maxWidth:440 }}>
+            Epik Advisory is a deal, liquidity, and restructuring advisor for business owners, lenders, and investors navigating complex situations.
+          </Body>
+          <div style={{ display:'flex', gap:16 }}>
+            <Btn label="OUR SERVICES" dark style={{ background:C.gold, borderColor:C.gold, color:C.white }} />
+            <Btn label="SITUATIONS WE HANDLE" style={{ color:C.white, borderColor:'#555' }} />
+          </div>
+        </div>
+        <div>
+          <div style={{ width:'100%', height:360, position:'relative', display:'flex', alignItems:'center', justifyContent:'center' }}>
+          <img src="assets/logo-compass.png"
+            style={{ width:340, height:340, objectFit:'contain', opacity:0.55, filter:'invert(1) sepia(1) saturate(0.4) brightness(1.2)' }}
+            alt="Epik Advisory Compass"
+          />
+        </div>
+        </div>
+      </div>
+      {/* Credential strip */}
+      <div style={{ borderTop:`1px solid #222`, display:'flex' }}>
+        {['Deal Advisory','Liquidity & Cash Flow','Fractional CFO','Restructuring & Turnaround','SEC Reporting','M&A Diligence'].map((s,i) => (
+          <div key={i} style={{ flex:1, padding:'16px 0', textAlign:'center', borderRight: i<5 ? `1px solid #222` : 'none', fontFamily:serif, fontSize:12, color:'#777', letterSpacing:1 }}>
+            {s.toUpperCase()}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* What We Do */}
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 2fr', gap:64 }}>
+        <div>
+          <Label>What We Do</Label>
+          <H2 style={{ fontSize:28 }}>Operator-led advisory for serious situations.</H2>
+        </div>
+        <div>
+          <Body style={{ fontSize:15, marginBottom:20 }}>
+            We are not a big firm. We are not a generalist consultant. Epik Advisory was built to serve companies and capital providers that need real execution — fast decisions, clean analysis, and a partner who has been in the room before.
+          </Body>
+          <Body style={{ color:C.mid }}>
+            Our team brings Big 4 technical depth and operator-level judgment. We work across the full capital structure — from clean audits and SEC filings to 13-week cash flows and buy-side diligence.
+          </Body>
+        </div>
+      </div>
+    </div>
+    <Rule />
+
+    {/* Core Services */}
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px' }}>
+      <Label>Core Services</Label>
+      <H2 style={{ marginBottom:48 }}>We handle what most firms won't.</H2>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:0, border:`1px solid ${C.light}` }}>
+        {[
+          { title:'Deal Advisory', sub:'Buy-side & sell-side M&A, QoE, transaction support', icon:'⚖' },
+          { title:'Liquidity & Cash Flow', sub:'13-week models, lender reporting, cash management', icon:'⟳' },
+          { title:'Fractional CFO', sub:'Senior finance leadership without the full-time cost', icon:'◈' },
+          { title:'Restructuring', sub:'Turnaround, distress advisory, lender negotiations', icon:'◬' },
+        ].map((s,i) => (
+          <div key={i} style={{ padding:'40px 28px', borderRight: i<3 ? `1px solid ${C.light}` : 'none', background:C.white, display:'flex', flexDirection:'column', alignItems:'center', textAlign:'center' }}>
+            <div style={{ fontSize:44, marginBottom:20, color:C.gold, lineHeight:1 }}>{s.icon}</div>
+            <H3 style={{ marginBottom:14 }}>{s.title}</H3>
+            <Body style={{ marginBottom:'auto', paddingBottom:24 }}>{s.sub}</Body>
+            <div style={{ fontFamily:serif, fontSize:12, color:C.gold, letterSpacing:1, borderBottom:`1px solid ${C.gold}`, display:'inline-block', paddingBottom:2, marginTop:16 }}>LEARN MORE →</div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <Rule />
+
+    {/* Situations */}
+    <div style={{ background:C.charcoal }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px' }}>
+        <Label style={{ color:C.goldLight }}>Situations We Handle</Label>
+        <H2 style={{ color:C.white, marginBottom:48, fontSize:28 }}>We are built for critical moments.</H2>
+        <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:16 }}>
+          {[
+            { tag:'ACQUISITION', headline:'You are buying a company', body:'Need buy-side diligence, QoE, and working capital analysis — fast.' },
+            { tag:'CASH CRISIS', headline:'You are running out of runway', body:'We build the 13-week cash flow, talk to lenders, and find the path forward.' },
+            { tag:'LENDER PRESSURE', headline:'Your lender is asking questions', body:'We manage reporting, prepare the narrative, and protect your relationship.' },
+            { tag:'TRANSACTION PREP', headline:'You\'re preparing for a sale', body:'Clean books, normalized EBITDA, and a data room that won\'t lose the deal.' },
+            { tag:'PRE-IPO / SEC', headline:'You\'re going public', body:'SEC-ready financials, audit support, and CFO services through the process.' },
+            { tag:'RESTRUCTURING', headline:'The business needs to change', body:'Operational and financial restructuring so the company survives and grows.' },
+          ].map((s,i) => (
+            <div key={i} style={{ background:'#1e1e1e', padding:'28px 24px', border:`1px solid #333` }}>
+              <div style={{ fontFamily:sketch, fontSize:11, color:C.gold, letterSpacing:2, marginBottom:12 }}>{s.tag}</div>
+              <H3 style={{ color:C.white, fontSize:17, marginBottom:10 }}>{s.headline}</H3>
+              <Body style={{ color:'#888', fontSize:13 }}>{s.body}</Body>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Outcomes */}
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px' }}>
+      <Label>Outcomes</Label>
+      <H2 style={{ marginBottom:48, fontSize:28 }}>Results, not reports.</H2>
+      <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:24 }}>
+        {[
+          { tag:'M&A ADVISORY', result:'$12M deal closed', note:'Buy-side diligence + working capital analysis for PE-backed acquisition' },
+          { tag:'FRACTIONAL CFO', result:'Series B raised', note:'18 months of books cleaned, models built, data room managed end-to-end' },
+          { tag:'SEC REPORTING', result:'S-1 filed on schedule', note:'Pre-IPO company — coordinated auditors, underwriters, and SEC filings' },
+        ].map((o,i) => (
+          <div key={i} style={{ border:`1px solid ${C.light}`, padding:'28px 24px' }}>
+            <div style={{ fontFamily:sketch, fontSize:11, color:C.gold, letterSpacing:2, marginBottom:16 }}>{o.tag}</div>
+            <div style={{ fontFamily:serif, fontSize:28, fontWeight:700, color:C.black, marginBottom:10 }}>{o.result}</div>
+            <ThinRule style={{ marginBottom:14 }} />
+            <Body style={{ fontSize:13 }}>{o.note}</Body>
+          </div>
+        ))}
+      </div>
+    </div>
+    <Rule />
+
+    {/* CTA */}
+    <div style={{ background:C.black }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
+        <div>
+          <Label style={{ color:C.goldLight }}>Engage Epik</Label>
+          <H2 style={{ color:C.white, fontSize:32, marginBottom:16 }}>Most engagements start with a single conversation.</H2>
+          <Body style={{ color:'#888' }}>No pitch deck. No retainer proposal on the first call. Just a direct conversation about your situation.</Body>
+        </div>
+        <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
+          {['Your Name','Company / Organization','What\'s the situation?','Best way to reach you'].map((f,i) => (
+            <div key={i} style={{ background:'#1a1a1a', border:`1px solid #333`, padding:'12px 16px', color:'#555', fontFamily:serif, fontSize:13 }}>{f}</div>
+          ))}
+          <Btn label="SEND →" dark style={{ background:C.gold, borderColor:C.gold, color:C.white, textAlign:'center', marginTop:4 }} />
+        </div>
+      </div>
+    </div>
+
+    {/* Footer */}
+    <div style={{ background:'#080808', padding:'40px 48px' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'flex', justifyContent:'space-between', alignItems:'center' }}>
+        <div style={{ textAlign:'left' }}>
+          <div style={{ fontFamily:"'Libre Baskerville',Georgia,serif", fontSize:20, letterSpacing:6, fontWeight:700, background:'linear-gradient(180deg,#e8c96a 0%,#a07830 55%,#c8a84a 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1 }}>EPIK</div>
+          <div style={{ fontFamily:"'Libre Baskerville',Georgia,serif", fontSize:13, letterSpacing:4, fontWeight:700, background:'linear-gradient(180deg,#e8c96a 0%,#a07830 55%,#c8a84a 100%)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', lineHeight:1.3 }}>ADVISORY</div>
+          <div style={{ fontFamily:"'Jost',sans-serif", fontWeight:300, fontSize:9, letterSpacing:3, color:'#4a4a4a', marginTop:6 }}>TRUSTED . PROVEN . EPIK .</div>
+        </div>
+        <div style={{ fontFamily:serif, fontSize:11, color:'#333', letterSpacing:2 }}>© 2026 EPIK ADVISORY. ALL RIGHTS RESERVED.</div>
+      </div>
+    </div>
+  </div>
+);
+
+// ── SERVICES PAGE ────────────────────────────────────────────────────────────
+
+const ServicesPage = () => {
+  const [active, setActive] = React.useState(0);
+  const services = [
+    {
+      name: 'Deal Advisory',
+      when: 'When clients call us',
+      whenItems: ['Preparing to sell the business','Acquiring a target company','Lenders want a QoE or valuation','Structuring a recapitalization'],
+      what: 'We provide independent financial advisory across the full deal lifecycle — buy-side, sell-side, and capital raises. We coordinate diligence, manage data rooms, and advise on deal structure.',
+      how: ['Quality of Earnings (QoE)', 'Working capital analysis', 'Normalized EBITDA modeling', 'Data room management', 'Lender & investor presentations'],
+      outputs: ['QoE Report','Financial Model','Management Presentation','Data Room Package'],
+    },
+    {
+      name: 'Liquidity & Cash Flow',
+      when: 'When clients call us',
+      whenItems: ['Runway is under 90 days','Lender is requesting cash projections','Business has unpredictable collections','Company needs to prioritize payments'],
+      what: 'We build and maintain 13-week cash flow models, manage lender communications, and help companies navigate liquidity constraints with clear, actionable plans.',
+      how: ['13-week cash flow model','Weekly variance analysis','Lender reporting packages','Payable prioritization','Working capital improvement'],
+      outputs: ['13-Week Cash Flow Model','Lender Report','Variance Bridge','Cash Management Plan'],
+    },
+    {
+      name: 'Fractional CFO',
+      when: 'When clients call us',
+      whenItems: ['No in-house CFO or controller','Preparing for fundraise or audit','Board needs financial credibility','Finance team needs leadership'],
+      what: 'We serve as your senior finance partner — embedded in your business, leading your team, and representing the company to investors, boards, and lenders.',
+      how: ['Monthly close ownership','Board package preparation','Investor & lender reporting','Financial strategy','Team mentorship'],
+      outputs: ['Monthly Board Package','Financial Forecast','Investor Reporting','Audit-Ready Financials'],
+    },
+    {
+      name: 'Restructuring & Turnaround',
+      when: 'When clients call us',
+      whenItems: ['Business is in default or near default','Lender has issued a waiver request','Operations need immediate cost reduction','Stakeholder negotiations required'],
+      what: 'We advise companies and creditors through operational and financial restructuring. We work fast, speak creditor language, and execute.',
+      how: ['Immediate liquidity assessment','Lender negotiations','Cost reduction analysis','Operational rightsizing','Stakeholder management'],
+      outputs: ['Restructuring Plan','13-Week Cash Flow','Lender Negotiation Memo','Operational Assessment'],
+    },
+  ];
+  const s = services[active];
+  return (
+    <div style={{ background:C.off }}>
+      {/* Page header */}
+      <div style={{ background:C.black, padding:'64px 48px 56px' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto' }}>
+          <Label style={{ color:C.goldLight }}>Services</Label>
+          <H1 style={{ color:C.white, fontSize:44, maxWidth:600 }}>What we do — and how we do it.</H1>
+        </div>
+      </div>
+      {/* Service tabs */}
+      <div style={{ borderBottom:`1px solid ${C.light}`, background:C.white }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 48px', display:'flex' }}>
+          {services.map((sv,i) => (
+            <div key={i} onClick={()=>setActive(i)} style={{ padding:'20px 32px 18px', fontFamily:serif, fontSize:13, letterSpacing:1, cursor:'pointer', color: active===i ? C.black : C.mid, borderBottom: active===i ? `2px solid ${C.gold}` : '2px solid transparent' }}>
+              {sv.name.toUpperCase()}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Service detail */}
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'64px 48px' }}>
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64 }}>
+          <div>
+            <H2 style={{ marginBottom:24 }}>{s.name}</H2>
+            <Body style={{ fontSize:15, marginBottom:32 }}>{s.what}</Body>
+            <Label>When clients call us</Label>
+            <div style={{ display:'flex', flexDirection:'column', gap:0 }}>
+              {s.whenItems.map((w,i) => (
+                <div key={i} style={{ padding:'14px 0', borderBottom:`1px solid ${C.light}`, fontFamily:serif, fontSize:14, color:C.charcoal, display:'flex', gap:12, alignItems:'flex-start' }}>
+                  <span style={{ color:C.gold, marginTop:1 }}>→</span> {w}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <Label>How We Execute</Label>
+            <div style={{ display:'flex', flexDirection:'column', gap:0, marginBottom:40 }}>
+              {s.how.map((h,i) => (
+                <div key={i} style={{ padding:'14px 0', borderBottom:`1px solid ${C.light}`, fontFamily:serif, fontSize:14, color:C.charcoal, display:'flex', gap:12 }}>
+                  <span style={{ color:C.gold }}>◆</span> {h}
+                </div>
+              ))}
+            </div>
+            <Label>Deliverables</Label>
+            <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:10 }}>
+              {s.outputs.map((o,i) => (
+                <div key={i} style={{ border:`1px solid ${C.light}`, padding:'12px 16px', fontFamily:serif, fontSize:13, color:C.charcoal, background:C.white }}>
+                  {o}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── SITUATIONS PAGE ──────────────────────────────────────────────────────────
+
+const SituationsPage = () => (
+  <div style={{ background:C.off }}>
+    <div style={{ background:C.black, padding:'64px 48px 0' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto' }}>
+        <Label style={{ color:C.goldLight }}>Situations</Label>
+        <H1 style={{ color:C.white, fontSize:44, maxWidth:640, marginBottom:56 }}>We don't wait to be asked. We show up when it matters.</H1>
+      </div>
+      {/* Lifecycle visual */}
+      <div style={{ maxWidth:1200, margin:'0 auto', paddingBottom:48 }}>
+        <div style={{ position:'relative', display:'flex', alignItems:'flex-start', justifyContent:'space-between' }}>
+          {/* connecting line */}
+          <div style={{ position:'absolute', top:20, left:'8%', right:'8%', height:1, background:'linear-gradient(to right, #333, #a08c6e, #a08c6e, #a08c6e, #333)', zIndex:0 }} />
+          {[
+            { num:'01', stage:'Acquisition', color:C.gold },
+            { num:'02', stage:'Cash Crisis', color:C.gold },
+            { num:'03', stage:'Lender Pressure', color:C.gold },
+            { num:'04', stage:'Transaction Prep', color:C.gold },
+            { num:'05', stage:'Pre-IPO / SEC', color:C.gold },
+            { num:'06', stage:'Restructuring', color:C.gold },
+          ].map((s,i) => (
+            <div key={i} style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:10, zIndex:1, width:'14%' }}>
+              <div style={{ width:40, height:40, borderRadius:'50%', background:C.black, border:`2px solid ${C.gold}`, display:'flex', alignItems:'center', justifyContent:'center', fontFamily:serif, fontSize:13, fontWeight:700, color:C.gold }}>
+                {s.num}
+              </div>
+              <div style={{ fontFamily:sketch, fontSize:11, color:'#888', textAlign:'center', letterSpacing:1, lineHeight:1.4 }}>{s.stage.toUpperCase()}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'64px 48px' }}>
+      {[
+          { num:'01', area:'ACQUISITION', headline:'You are acquiring a company.', body:'You\'ve identified a target. Now you need to know what you\'re actually buying. We provide buy-side diligence — QoE, working capital, normalized EBITDA — and stay with you through close.', services:['Deal Advisory','Financial Modeling','Fractional CFO'] },
+          { num:'02', area:'CASH CRISIS', headline:'You are running out of cash.', body:'The runway is short. Lenders are asking questions. We build the 13-week cash flow immediately, map the critical path, and give you the language to manage your creditors.', services:['Liquidity & Cash Flow','Restructuring'] },
+          { num:'03', area:'LENDER PRESSURE', headline:'Your lender is asking questions.', body:'A covenant has been tripped. Your lender wants projections and a plan. We handle the reporting package and help you control the narrative.', services:['Liquidity & Cash Flow','Restructuring'] },
+          { num:'04', area:'TRANSACTION PREP', headline:'You are preparing for a sale.', body:'Going to market in 6–18 months. Books need to be clean, story clear, and data room airtight. We own the financial preparation end to end.', services:['Deal Advisory','Fractional CFO'] },
+          { num:'05', area:'PRE-IPO / SEC', headline:'You are going public.', body:'SEC-ready financials require precision. We coordinate with auditors and underwriters, prepare filings, and serve as your financial infrastructure.', services:['SEC Reporting','Audit Readiness'] },
+          { num:'06', area:'RESTRUCTURING', headline:'The business needs to change.', body:'Revenue down, costs too high, capital structure broken. We assess with fresh eyes and build the plan — for ownership and for creditors.', services:['Restructuring & Turnaround','Deal Advisory'] },
+        ].map((sit,i) => (
+          <div key={i} style={{ display:'grid', gridTemplateColumns:'120px 1fr', borderBottom:`1px solid ${C.light}`, padding:'44px 0', alignItems:'flex-start' }}>
+            <div style={{ textAlign:'right', paddingRight:32, borderRight:`1px solid ${C.light}` }}>
+              <div style={{ fontFamily:serif, fontSize:64, fontWeight:700, color:'#e8e4dc', lineHeight:1 }}>{sit.num}</div>
+              <div style={{ fontFamily:sketch, fontSize:10, fontWeight:500, color:C.gold, letterSpacing:2, marginTop:8 }}>{sit.area}</div>
+            </div>
+            <div style={{ paddingLeft:32 }}>
+              <H3 style={{ marginBottom:10, fontSize:22 }}>{sit.headline}</H3>
+              <Body style={{ maxWidth:560, marginBottom:16 }}>{sit.body}</Body>
+              <div style={{ display:'flex', flexWrap:'wrap', gap:6 }}>
+                {sit.services.map(sv => (
+                  <div key={sv} style={{ border:`1px solid ${C.light}`, padding:'3px 12px', fontFamily:sketch, fontSize:10, fontWeight:500, color:C.mid, letterSpacing:1, whiteSpace:'nowrap' }}>{sv.toUpperCase()}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+    </div>
+  </div>
+);
+
+// ── ABOUT PAGE ───────────────────────────────────────────────────────────────
+
+const AboutPage = () => (
+  <div style={{ background:C.off }}>
+    <div style={{ background:C.black, padding:'64px 48px 56px' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
+        <div>
+          <Label style={{ color:C.goldLight }}>About Epik</Label>
+          <H1 style={{ color:C.white, fontSize:44, lineHeight:1.1, marginBottom:24 }}>We have been in the room.<br/>Not just studying it.</H1>
+          <Body style={{ color:'#aaa', fontSize:15 }}>Epik Advisory was founded on a simple belief: that growing companies and businesses in transition deserve the same caliber of financial leadership as the largest corporations — without the bureaucracy, overhead, or impersonal service.</Body>
+        </div>
+        <div style={{ width:'100%', height:400, overflow:'hidden', flexShrink:0 }}>
+          <img src="assets/founder.jpg" style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center top', filter:'grayscale(100%)' }} alt="Founder" />
+        </div>
+      </div>
+    </div>
+
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px' }}>
+      <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64 }}>
+        <div>
+          <Label>The Founder</Label>
+          <H2 style={{ fontSize:28, marginBottom:20 }}>Operator. Advisor. Principal.</H2>
+          <Body style={{ marginBottom:16 }}>Our founder spent years at Big 4 firms advising on complex transactions, restructurings, and SEC reporting engagements. They have sat on both sides of the table — as advisor and as operator.</Body>
+          <Body style={{ marginBottom:24 }}>That experience is the difference. When we advise on a distressed situation or a buy-side transaction, we're drawing on real outcomes — not textbook frameworks.</Body>
+          <div style={{ display:'flex', gap:0, flexWrap:'wrap' }}>
+            {['Big 4 Alumni','M&A Advisory','SEC Reporting','Restructuring','Fractional CFO'].map((t,i) => (
+              <div key={i} style={{ border:`1px solid ${C.light}`, padding:'6px 14px', fontFamily:serif, fontSize:11, color:C.mid, letterSpacing:1, margin:'0 8px 8px 0' }}>{t.toUpperCase()}</div>
+            ))}
+          </div>
+        </div>
+        <div style={{ display:'flex', flexDirection:'column', gap:24 }}>
+          {[
+            { stat:'15+', label:'Years advisory experience' },
+            { stat:'$2B+', label:'In transactions advised' },
+            { stat:'Big 4', label:'Technical pedigree — boutique attention' },
+          ].map((s,i) => (
+            <div key={i} style={{ borderBottom:`1px solid ${C.light}`, paddingBottom:24, display:'grid', gridTemplateColumns:'100px 1fr', gap:24, alignItems:'center' }}>
+              <div style={{ fontFamily:serif, fontSize:42, fontWeight:700, color:C.gold }}>{s.stat}</div>
+              <div style={{ fontFamily:serif, fontSize:15, color:C.charcoal }}>{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <Rule />
+    <div style={{ background:C.charcoal }}>
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'64px 48px' }}>
+        <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:64, alignItems:'center' }}>
+          <div>
+            <Label style={{ color:C.goldLight }}>Our Philosophy</Label>
+            <H2 style={{ color:C.white, fontSize:28, marginBottom:20 }}>A trusted advisor isn't a vendor.<br/>They're a partner.</H2>
+          </div>
+          <div>
+            <Body style={{ color:'#aaa' }}>We don't hand you a report and leave. We stay. We answer the hard questions. We sit in the room with your lenders, your board, and your investors. That's what it means to be the advisor beside you.</Body>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// ── CONTACT PAGE ─────────────────────────────────────────────────────────────
+
+const ContactPage = () => (
+  <div style={{ background:C.off }}>
+    <div style={{ background:C.black, padding:'64px 48px 56px' }}>
+      <div style={{ maxWidth:1200, margin:'0 auto' }}>
+        <Label style={{ color:C.goldLight }}>Contact</Label>
+        <H1 style={{ color:C.white, fontSize:44, maxWidth:600 }}>Tell us what's happening. We'll take it from there.</H1>
+      </div>
+    </div>
+    <div style={{ maxWidth:1200, margin:'0 auto', padding:'80px 48px', display:'grid', gridTemplateColumns:'1fr 1fr', gap:80 }}>
+      <div>
+        <H2 style={{ fontSize:24, marginBottom:20 }}>How to engage us</H2>
+        <Body style={{ marginBottom:32 }}>We don't require an RFP or a formal process. Most engagements begin with a direct conversation about the situation. There's no pitch — just an honest assessment of whether we can help.</Body>
+        <ThinRule style={{ marginBottom:32 }} />
+        <div style={{ display:'flex', flexDirection:'column', gap:24 }}>
+          {[
+            { label:'FOR BUSINESS OWNERS', note:'Fractional CFO, deals, liquidity, SEC' },
+            { label:'FOR LENDERS & CREDITORS', note:'Distressed reporting, 13-week cash flow, restructuring' },
+            { label:'FOR INVESTORS & PE', note:'Buy-side diligence, portfolio CFO, transaction support' },
+          ].map((c,i) => (
+            <div key={i} style={{ borderLeft:`2px solid ${C.gold}`, paddingLeft:20 }}>
+              <div style={{ fontFamily:serif, fontSize:13, fontWeight:700, letterSpacing:1, marginBottom:4 }}>{c.label}</div>
+              <Body style={{ fontSize:13 }}>{c.note}</Body>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <div style={{ background:C.white, border:`1px solid ${C.light}`, padding:'40px 36px' }}>
+          <H3 style={{ marginBottom:24, fontSize:18 }}>Start a conversation</H3>
+          <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
+            {['Full Name','Company or Organization','Email Address','Phone (Optional)'].map((f,i) => (
+              <div key={i}>
+                <div style={{ fontFamily:serif, fontSize:11, letterSpacing:1, color:C.mid, marginBottom:6 }}>{f.toUpperCase()}</div>
+                <div style={{ border:`1px solid ${C.light}`, padding:'11px 14px', background:C.off, color:'#bbb', fontFamily:serif, fontSize:13 }}>{f}</div>
+              </div>
+            ))}
+            <div>
+              <div style={{ fontFamily:serif, fontSize:11, letterSpacing:1, color:C.mid, marginBottom:6 }}>DESCRIBE YOUR SITUATION</div>
+              <div style={{ border:`1px solid ${C.light}`, padding:'11px 14px', background:C.off, color:'#bbb', fontFamily:serif, fontSize:13, height:80, display:'flex', alignItems:'flex-start' }}>What's going on?</div>
+            </div>
+            <Btn label="SEND MESSAGE →" dark style={{ background:C.black, borderColor:C.black, color:C.white, textAlign:'center', padding:'14px 28px', marginTop:8 }} />
+          </div>
+          <div style={{ marginTop:20, fontFamily:sketch, fontSize:12, color:C.mid, textAlign:'center' }}>No spam. No pitch deck. We reply within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+
+// ── SERVICES PAGE V2 (Full-width layout) ─────────────────────────────────────
+
+const ServicesPageV2 = () => {
+  const [active, setActive] = React.useState(0);
+  const services = [
+    {
+      name: 'Fractional CFO',
+      tagline: 'Your senior finance partner. On your team, not just on call.',
+      body: 'Most growing companies cannot afford a full-time CFO — and do not need one. But they do need senior financial leadership: someone who owns the strategy, speaks to investors, manages the team, and tells the truth. Epik Advisory brings you exactly that. We embed into your business, lead your finance function, and stay as long as you need us.',
+      when: ['No in-house CFO or controller','Preparing for a fundraise or audit','Board needs financial credibility','Need someone to lead the finance team'],
+      how: ['Monthly close ownership','Board & investor package preparation','Financial model + forecasting','Audit coordination','Team mentorship & hiring'],
+      outputs: ['Monthly Board Package','3-Year Financial Forecast','Investor Reporting Template','Audit-Ready Financials'],
+    },
+    {
+      name: 'Deal Advisory',
+      tagline: 'We have been in the room. On both sides.',
+      body: 'A transaction is only as good as the financial work behind it. Whether buying, selling, or raising capital, the numbers need to hold up — to scrutiny, to due diligence, to a lender’s credit committee. Epik Advisory provides independent financial advisory across the full deal lifecycle. We coordinate diligence, run the data room, and advise on structure through close.',
+      when: ['Preparing to sell the business','Acquiring a target company','Lenders want a QoE or valuation','Structuring a recapitalization'],
+      how: ['Quality of Earnings (QoE)','Working capital analysis','Normalized EBITDA modeling','Data room management','Lender & investor presentations'],
+      outputs: ['QoE Report','Financial Model','Management Presentation','Data Room Package'],
+    },
+    {
+      name: 'Liquidity & Cash Flow',
+      tagline: 'When cash is tight, clarity is everything.',
+      body: 'Cash flow problems do not announce themselves until they are urgent. When lenders are asking questions or runway is shrinking, you need a 13-week cash flow model, a clear picture of your obligations, and someone who can talk to creditors with credibility. We build the model, manage the narrative, and help you find the path forward.',
+      when: ['Runway is under 90 days','Lender is requesting cash projections','Business has unpredictable collections','Need to prioritize payments'],
+      how: ['13-week cash flow model','Weekly variance analysis','Lender reporting packages','Payable prioritization','Working capital improvement'],
+      outputs: ['13-Week Cash Flow Model','Lender Report','Variance Bridge','Cash Management Plan'],
+    },
+    {
+      name: 'Restructuring & Turnaround',
+      tagline: 'When the business needs to change, we do not just advise. We execute.',
+      body: 'Restructuring is not a planning exercise. It is an execution challenge under pressure. Epik Advisory advises companies and creditors through financial and operational restructuring — fast assessment, clear priorities, and a plan stakeholders can believe in. We speak lender language. We know what it takes to stabilize and recover.',
+      when: ['Business is in default or near default','Lender has issued a waiver request','Operations need immediate cost reduction','Stakeholder negotiations required'],
+      how: ['Immediate liquidity assessment','Lender negotiations','Cost reduction analysis','Operational rightsizing','Stakeholder management'],
+      outputs: ['Restructuring Plan','13-Week Cash Flow','Lender Negotiation Memo','Operational Assessment'],
+    },
+  ];
+  const s = services[active];
+  return (
+    <div style={{ background:C.off }}>
+      <div style={{ background:C.black, padding:'64px 48px 56px' }}>
+        <div style={{ maxWidth:1200, margin:'0 auto' }}>
+          <Label style={{ color:C.goldLight }}>Services</Label>
+          <H1 style={{ color:C.white, fontSize:44, maxWidth:600 }}>What we do — and how we do it.</H1>
+        </div>
+      </div>
+      {/* Tab selector */}
+      <div style={{ borderBottom:`1px solid ${C.light}`, background:C.white, position:'sticky', top:0, zIndex:10 }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'0 48px', display:'flex' }}>
+          {services.map((sv,i) => (
+            <div key={i} onClick={()=>setActive(i)} style={{ padding:'20px 32px 18px', fontFamily:serif, fontSize:13, letterSpacing:1, cursor:'pointer', color: active===i ? C.black : C.mid, borderBottom: active===i ? `2px solid ${C.gold}` : '2px solid transparent' }}>
+              {sv.name.toUpperCase()}
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Full-width service hero */}
+      <div style={{ background:C.white, borderBottom:`1px solid ${C.light}` }}>
+        <div style={{ maxWidth:1200, margin:'0 auto', padding:'64px 48px 0' }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1px 2fr', gap:0, alignItems:'start' }}>
+            <div style={{ paddingRight:48, paddingBottom:48 }}>
+              <div style={{ fontFamily:serif, fontSize:72, fontWeight:700, color:'#f0ede8', lineHeight:1, marginBottom:16 }}>
+                {String(active+1).padStart(2,'0')}
+              </div>
+              <H2 style={{ fontSize:28, marginBottom:12 }}>{s.name}</H2>
+              <div style={{ fontFamily:serif, fontSize:14, color:C.gold, fontStyle:'italic', lineHeight:1.5 }}>{s.tagline}</div>
+            </div>
+            <div style={{ background:C.light, alignSelf:'stretch' }} />
+            <div style={{ paddingLeft:48, paddingBottom:48 }}>
+              <Body style={{ fontSize:16, lineHeight:1.9, color:C.charcoal }}>{s.body}</Body>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Three-column detail */}
+      <div style={{ maxWidth:1200, margin:'0 auto', padding:'48px 48px 64px', display:'grid', gridTemplateColumns:'1fr 1fr 1fr', gap:32 }}>
+        <div>
+          <Label>When Clients Call Us</Label>
+          {s.when.map((w,i) => (
+            <div key={i} style={{ padding:'14px 0', borderBottom:`1px solid ${C.light}`, fontFamily:serif, fontSize:14, color:C.charcoal, display:'flex', gap:10 }}>
+              <span style={{ color:C.gold }}>→</span> {w}
+            </div>
+          ))}
+        </div>
+        <div>
+          <Label>How We Execute</Label>
+          {s.how.map((h,i) => (
+            <div key={i} style={{ padding:'14px 0', borderBottom:`1px solid ${C.light}`, fontFamily:serif, fontSize:14, color:C.charcoal, display:'flex', gap:10 }}>
+              <span style={{ color:C.gold }}>◆</span> {h}
+            </div>
+          ))}
+        </div>
+        <div>
+          <Label>Deliverables</Label>
+          {s.outputs.map((o,i) => (
+            <div key={i} style={{ border:`1px solid ${C.light}`, padding:'16px 20px', fontFamily:serif, fontSize:13, color:C.charcoal, background:C.white, marginBottom:10, display:'flex', gap:10, alignItems:'center' }}>
+              <span style={{ color:C.gold, fontSize:18 }}>◎</span> {o}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// ── APP ──────────────────────────────────────────────────────────────────────
+
+const PAGE_MAP = {
+  'Home': HomePage,
+  'Services': ServicesPage,
+  'Situations': SituationsPage,
+  'About': AboutPage,
+  'Contact': ContactPage,
+};
+
+function App() {
+  const [page, setPage] = React.useState(() => localStorage.getItem('epik_page') || 'Home');
+  const [tweaksVisible, setTweaksVisible] = React.useState(false);
+
+  React.useEffect(() => { localStorage.setItem('epik_page', page); }, [page]);
+
+  React.useEffect(() => {
+    window.addEventListener('message', e => {
+      if (e.data?.type === '__activate_edit_mode') setTweaksVisible(true);
+      if (e.data?.type === '__deactivate_edit_mode') setTweaksVisible(false);
+    });
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+  }, []);
+
+  const Page = PAGE_MAP[page];
+
+  const [chromeTab, setChromeTab] = React.useState(() => parseInt(localStorage.getItem('epik_chrome_tab') || '0'));
+  React.useEffect(() => { localStorage.setItem('epik_chrome_tab', chromeTab); }, [chromeTab]);
+
+  const chromeTabs = [
+    { title: `epikadvisory.com/${page === 'Home' ? '' : page.toLowerCase()}` },
+    { title: 'Services — New Layout' },
+  ];
+
+  return (
+    <ChromeWindow
+      tabs={chromeTabs}
+      activeIndex={chromeTab}
+      url={chromeTabs[chromeTab].title}
+      style={{ width:'100%', maxWidth:1280 }}>
+      <div style={{ display:'flex', background:CHROME_C?.barBg || '#202124' }}>
+        {chromeTabs.map((t,i) => (
+          <div key={i} onClick={()=>setChromeTab(i)} style={{ padding:'8px 20px', fontFamily:'system-ui, sans-serif', fontSize:12, cursor:'pointer', background: chromeTab===i ? '#35363a' : 'transparent', color: chromeTab===i ? '#e8eaed' : '#9aa0a6', borderBottom: chromeTab===i ? '2px solid #a08c6e' : '2px solid transparent' }}>
+            {t.title}
+          </div>
+        ))}
+      </div>
+      <div style={{ overflowY:'auto', maxHeight:'76vh', background:C.off }}>
+        {chromeTab === 0 ? (
+          <>
+            <SiteNav activePage={page} setPage={p => { setPage(p); }} />
+            <Page />
+          </>
+        ) : (
+          <ServicesPageV2 />
+        )}
+      </div>
+      {tweaksVisible && (
+        <div style={{ position:'fixed', bottom:20, right:20, zIndex:9999, background:C.white, border:`1px solid ${C.light}`, padding:'20px 24px', fontFamily:sketch, width:260, boxShadow:'0 4px 24px rgba(0,0,0,0.12)' }}>
+          <div style={{ fontWeight:700, fontSize:18, marginBottom:14 }}>Tweaks</div>
+          <div style={{ fontSize:14, marginBottom:8 }}>Page</div>
+          {Object.keys(PAGE_MAP).map(p => (
+            <div key={p} onClick={()=>setPage(p)} style={{ padding:'6px 10px', cursor:'pointer', background: page===p ? C.black : 'transparent', color: page===p ? C.white : C.black, marginBottom:4, fontSize:14 }}>{p}</div>
+          ))}
+        </div>
+      )}
+    </ChromeWindow>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+<div id="root"></div>
+</body>
+</html>
