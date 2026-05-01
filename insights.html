@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Insights — Epik Advisory</title>
+<meta name="description" content="Insights and thought leadership from Epik Advisory on CFO advisory, SEC reporting, GAAP compliance, and cross-border finance."/>
+<link rel="stylesheet" href="style.css"/>
+<style>
+.insights-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:52px; }
+.ins-card { border:1px solid var(--light); overflow:hidden; background:#fff; transition:box-shadow .3s,transform .3s; }
+.ins-card:hover { box-shadow:0 8px 40px rgba(0,0,0,.09); transform:translateY(-4px); }
+.ins-thumb { width:100%; height:220px; object-fit:cover; display:block; transition:transform .5s; }
+.ins-card:hover .ins-thumb { transform:scale(1.03); }
+.ins-thumb-wrap { overflow:hidden; }
+.ins-body { padding:28px 24px; }
+.ins-meta { display:flex; gap:12px; align-items:center; margin-bottom:12px; }
+.ins-date { font-size:11px; color:#999; letter-spacing:1px; text-transform:uppercase; }
+.ins-cat { font-size:10px; color:var(--gold); letter-spacing:1.5px; text-transform:uppercase; font-weight:700; border-left:1px solid var(--light); padding-left:12px; }
+.ins-card h3 { font-size:19px; color:#111; font-weight:700; line-height:1.3; margin-bottom:10px; }
+.ins-card p { font-size:13px; color:var(--mid); line-height:1.7; margin-bottom:18px; }
+.ins-link { font-size:11px; color:var(--gold); letter-spacing:1.5px; text-transform:uppercase; font-weight:700; border-bottom:1px solid var(--gold); padding-bottom:2px; display:inline-block; }
+.featured { grid-column:span 3; display:grid; grid-template-columns:1.2fr 1fr; }
+.featured .ins-thumb { height:400px; }
+.featured .ins-body { padding:40px; display:flex; flex-direction:column; justify-content:center; }
+.featured h3 { font-size:26px; }
+.featured-label { display:inline-block; background:var(--gold); color:#000; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:4px 10px; margin-bottom:12px; }
+@media(max-width:900px){.insights-grid{grid-template-columns:1fr 1fr}.featured{grid-column:span 2;grid-template-columns:1fr}}
+@media(max-width:600px){.insights-grid{grid-template-columns:1fr}.featured{grid-column:span 1}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span><svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>+800-3374-4676</span>
+    <span><svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>epikinvestments@outlook.com</span>
+  </div>
+</div>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="assets/logo.png" alt="Epik Advisory"/></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a><a href="capabilities.html">Capabilities</a><a href="insights.html" class="active">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Book an Advisory Call</a>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="label">Thought Leadership</div>
+    <h1>Insights</h1>
+    <p>Practical perspectives on CFO advisory, SEC compliance, cross-border finance, and the decisions that define growth-stage companies.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="sec">
+    <div class="insights-grid">
+
+      <!-- FEATURED POST -->
+      <div class="ins-card featured fade-up">
+        <div class="ins-thumb-wrap">
+          <img class="ins-thumb" src="assets/insight-thumb.jpg" alt="When Your Startup Needs a CFO"/>
+        </div>
+        <div class="ins-body">
+          <div class="featured-label">Featured</div>
+          <div class="ins-meta">
+            <span class="ins-date">May 2026</span>
+            <span class="ins-cat">CFO Advisory</span>
+          </div>
+          <h3>When Your Startup Actually Needs a CFO (And When a Bookkeeper Will Do)</h3>
+          <p>Most founders hire finance help too late or at the wrong level. This post defines the 5 inflection points where a CFO-level operator — not an accountant — becomes necessary: Series A prep, cross-border revenue, SEC registration, investor reporting, and M&A interest.</p>
+          <a href="insights/when-you-need-a-cfo.html" class="ins-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div class="ins-card fade-up d1">
+        <div class="ins-thumb-wrap">
+          <img class="ins-thumb" src="assets/insight-thumb.jpg" alt="GAAP Mistakes"/>
+        </div>
+        <div class="ins-body">
+          <div class="ins-meta">
+            <span class="ins-date">Apr 2026</span>
+            <span class="ins-cat">SEC &amp; GAAP</span>
+          </div>
+          <h3>The 4 Most Common GAAP Mistakes Foreign Companies Make Entering the US</h3>
+          <p>Revenue recognition timing, lease accounting under ASC 842, intercompany eliminations, and FX translation errors — the mistakes we see most often and how to avoid them.</p>
+          <a href="insights/gaap-mistakes-foreign-companies.html" class="ins-link">Read Article</a>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div class="ins-card fade-up d2">
+        <div class="ins-thumb-wrap">
+          <img class="ins-thumb" src="assets/insight-thumb.jpg" alt="Cross-Border Checklist"/>
+        </div>
+        <div class="ins-body">
+          <div class="ins-meta">
+            <span class="ins-date">Mar 2026</span>
+            <span class="ins-cat">Cross-Border</span>
+          </div>
+          <h3>The Financial Infrastructure Checklist for Companies Expanding Into the US</h3>
+          <p>Entity structure, US banking, transfer pricing, payroll compliance, SEC thresholds, and board reporting — the complete checklist for a financially sound US market entry.</p>
+          <a href="insights/us-expansion-checklist.html" class="ins-link">Read Article</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div style="background:var(--navy);padding:72px 0;text-align:center">
+  <div class="wrap fade-up">
+    <div class="sec-label" style="color:var(--gold)">Stay Informed</div>
+    <h2 class="sec-title" style="color:#fff;margin-bottom:12px">Get Insights Delivered</h2>
+    <p style="color:rgba(255,255,255,.45);margin-bottom:32px;font-size:15px">New articles on CFO advisory, SEC compliance, and cross-border finance — sent when they are ready, not on a schedule.</p>
+    <a href="contact.html" class="btn-gold">Contact Us</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-main">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Epik Advisory"/>
+      <p>Trusted CFO &amp; SEC advisory for companies scaling globally.</p>
+      <div class="fc"><svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>+800-3374-4676</div>
+      <div class="fc"><svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>epikinvestments@outlook.com</div>
+    </div>
+    <div class="footer-col"><h4>Navigation</h4><a href="index.html">Home</a><a href="capabilities.html">Capabilities</a><a href="insights.html">Insights</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="capabilities.html#cfo">Fractional CFO Advisory</a><a href="capabilities.html#sec">SEC &amp; GAAP Reporting</a><a href="capabilities.html#transaction">Transaction Advisory</a><a href="capabilities.html#crossborder">Cross-Border Expansion</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Epik Advisory. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var els=document.querySelectorAll('.fade-up,.fade-left,.fade-right');
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
+  els.forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>
