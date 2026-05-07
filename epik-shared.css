@@ -1,4 +1,4 @@
-    /* Epik Advisory v2 - shared styles for inner pages */
+/* Epik Advisory v2 - shared styles for inner pages */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --gold:#c8a84a;
@@ -110,5 +110,3 @@ footer{background:var(--black);border-top:1px solid #0e1218}
 @media(max-width:600px){
   .nav-links{display:none}
 }
-
-    
