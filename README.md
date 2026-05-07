@@ -1,170 +1,129 @@
 # Epik Advisory — Website
 
-A complete multi-page professional website for Epik Advisory. Built with clean HTML, CSS, and JavaScript — no frameworks, no build tools. Works on GitHub Pages out of the box.
+A fully self-contained HTML website for Epik Advisory. Built with HTML, CSS, and JavaScript — no frameworks required for deployment.
 
 ---
 
-## 📁 File Structure (upload ALL of these)
+## 📁 File Structure
 
 ```
 /
-├── index.html              ← Homepage
-├── capabilities.html       ← Capabilities (4 service pages)
-├── about.html              ← About / Founder
-├── insights.html           ← Insights / Blog index
-├── contact.html            ← Contact form
-├── style.css               ← Shared styles (used by all pages)
-└── assets/                 ← All images
-    ├── logo.png            ← Epik Advisory logo (no background)
-    ├── hero-1.jpg          ← Hero slideshow image 1
-    ├── hero-2.jpg          ← Hero slideshow image 2
-    ├── hero-3.jpg          ← Hero slideshow image 3
-    ├── cap-cfo.jpg         ← Capabilities: Fractional CFO
-    ├── cap-sec.jpg         ← Capabilities: SEC & GAAP
-    ├── cap-transaction.jpg ← Capabilities: Transaction
-    ├── cap-crossborder.jpg ← Capabilities: Cross-Border
-    ├── testi-1.jpg         ← Testimonial portrait 1
-    ├── testi-2.jpg         ← Testimonial portrait 2
-    ├── testi-3.jpg         ← Testimonial portrait 3
-    ├── insight-thumb.jpg   ← Insights thumbnail
-    ├── founder-1.jpg       ← About: main photo
-    └── founder-2.jpg       ← About: secondary photo
+├── Epik Advisory.html          ← Main website (edit this)
+├── epik-tweaks.jsx             ← Tweaks panel config (edit for live controls)
+├── tweaks-panel.jsx            ← Tweaks panel component (do not edit)
+├── Epik Advisory - Content Sheet.csv  ← All editable content values
+├── uploads/                    ← All images used by the site
+│   ├── EpikAdvisory02.png      ← Main logo
+│   ├── 5HG2TK2.jpg             ← Hero slide 1
+│   ├── G2EE8LS.jpg             ← Hero slide 2
+│   ├── VTKJNY3.jpg             ← Hero slide 3
+│   ├── Y5YV9AMa.jpg            ← Capabilities: Fractional CFO
+│   ├── 58MLGG3a.jpg            ← Capabilities: SEC & GAAP
+│   ├── GEWZQW7.jpg             ← Capabilities: Transaction
+│   ├── MXAVSHL.jpg             ← Capabilities: Cross-Border
+│   ├── UBNG9AEk.jpg            ← Testimonial 1
+│   ├── UBNG9AEc.jpg            ← Testimonial 2
+│   ├── UBNG9AEm.jpg            ← Testimonial 3
+│   ├── CE5V9V8.jpg             ← Insights thumbnail
+│   ├── 7TGLLJF.jpg             ← About: main photo
+│   └── 33GGVVa.jpg             ← About: secondary photo
+└── README.md                   ← This file
 ```
 
 ---
 
-## 🚀 How to Upload to GitHub Pages (Step by Step)
+## 🚀 Uploading to GitHub Pages (Free Hosting)
 
-### Step 1 — Create a GitHub account
-Go to [github.com](https://github.com) and sign up (free).
+### Step 1 — Create a GitHub Account
+Go to [github.com](https://github.com) and sign up for free.
 
-### Step 2 — Create a new repository
-1. Click **+** → **New repository**
-2. Name: `epikconsulting` (or anything you like)
+### Step 2 — Create a New Repository
+1. Click the **+** icon → **New repository**
+2. Name it: `epikconsulting` (or `epikadvisory`)
 3. Set to **Public**
 4. Click **Create repository**
 
-### Step 3 — Upload ALL files
+### Step 3 — Upload Your Files
 1. In your new repo, click **Add file → Upload files**
-2. **Drag and drop the entire `site/` folder contents** — all HTML files, style.css, and the `assets/` folder
-3. GitHub must see this structure at the root level:
-   ```
-   index.html
-   capabilities.html
-   about.html
-   insights.html
-   contact.html
-   style.css
-   assets/logo.png
-   assets/hero-1.jpg
-   ... etc
-   ```
-4. Commit message: `Initial site upload`
-5. Click **Commit changes**
+2. Drag and drop ALL files from this project folder:
+   - `Epik Advisory.html`
+   - `epik-tweaks.jsx`
+   - `tweaks-panel.jsx`
+   - The entire `uploads/` folder
+3. In the commit message box type: `Initial upload`
+4. Click **Commit changes**
 
-### Step 4 — Enable GitHub Pages
+### Step 4 — Rename main HTML to index.html
+GitHub Pages serves `index.html` as the homepage.
+1. Click on `Epik Advisory.html` in your repo
+2. Click the pencil (edit) icon
+3. Change the filename at the top to `index.html`
+4. Scroll down and click **Commit changes**
+
+### Step 5 — Enable GitHub Pages
 1. Go to **Settings** tab in your repo
-2. Click **Pages** in the left sidebar
-3. Under **Source**: select `Deploy from a branch`
-4. Under **Branch**: select `main`, folder `/ (root)`
+2. Scroll to **Pages** in the left sidebar
+3. Under **Source**, select `Deploy from a branch`
+4. Under **Branch**, select `main` and `/ (root)`
 5. Click **Save**
-6. Wait ~2 minutes. Your site is live at:
-   `https://YOUR-USERNAME.github.io/REPO-NAME/`
+6. Wait ~2 minutes, then your site is live at:
+   `https://YOUR-USERNAME.github.io/epikconsulting/`
 
 ---
 
-## ✏️ How to Update Content (No Code Knowledge Required)
+## ✏️ How to Update Content Without Claude
 
-### Edit any text — GitHub web editor
+### Option A — Edit the HTML directly on GitHub (easiest)
 1. Go to your GitHub repo
-2. Click the file you want to edit (e.g. `index.html`)
+2. Click `index.html`
 3. Click the **pencil icon** (Edit this file)
-4. Press **Ctrl+F** to find the text you want to change
+4. Use **Ctrl+F** to find the text you want to change
 5. Edit it directly
 6. Click **Commit changes**
-7. Site updates in ~30 seconds ✓
+7. Site updates in ~30 seconds
 
-### Common edits quick-reference:
-| What to change | Open this file | Search for |
-|---|---|---|
-| Hero headline | index.html | `Cross-Border Finance` |
-| Hero subheading | index.html | `Trusted CFO & SEC` |
-| Phone number | Any file | `+800-3374-4676` |
-| Email address | Any file | `epikinvestments@outlook.com` |
-| Stats (30+, $2B+) | index.html | `stat-num` |
-| Testimonial quotes | index.html | `testi-card` |
-| Capabilities descriptions | capabilities.html | service name |
-| Founder quote | about.html | `founder-quote` |
-| Copyright year | Any file | `© 2026` |
+### Option B — Edit the CSV content sheet
+Open `Epik Advisory - Content Sheet.csv` in Excel or Google Sheets. Use it as a reference for what text goes where in the HTML, then make the changes in the HTML file.
 
-### Swap an image:
-1. Upload new image to `assets/` folder on GitHub
-2. Find old image filename in HTML (e.g. `founder-1.jpg`)
-3. Replace with new filename
+### Common edits:
+| What to change | How to find it in HTML |
+|---|---|
+| Hero headline | Search: `Cross-Border Finance` |
+| Hero subheading | Search: `Trusted CFO & SEC advisory` |
+| Email address | Search: `epikinvestments@outlook.com` |
+| Phone number | Search: `+800-3374-4676` |
+| Testimonial names | Search: `David Thompson` / `Sarah Manning` |
+| Footer copyright | Search: `© 2026` |
+| Capabilities text | Search: `Fractional CFO Advisory` |
 
----
-
-## 📬 Setting Up the Contact Form (5 minutes, free)
-
-The contact form on `contact.html` needs a backend to send emails.
-
-1. Go to [formspree.io](https://formspree.io) and sign up (free)
-2. Create a new form — you'll get a form ID like `xpzgkwrb`
-3. In `contact.html`, find this line:
-   ```html
-   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-4. Replace `YOUR_FORM_ID` with your actual ID:
-   ```html
-   <form action="https://formspree.io/f/xpzgkwrb" method="POST">
-   ```
-5. Commit the change. Done — form submissions go straight to your email.
+### Replacing images:
+1. Upload new image to `uploads/` folder on GitHub
+2. Find the old image filename in `index.html` (e.g. `7TGLLJF.jpg`)
+3. Replace it with your new filename
 
 ---
 
-## 🔤 Adding a Custom Domain (epikconsulting.com)
-
-1. Buy domain at [Cloudflare](https://www.cloudflare.com/products/registrar/) (~$10/year, cheapest)
-2. In GitHub Pages settings → enter your custom domain
-3. In Cloudflare DNS, add:
-   - Type: `CNAME` | Name: `www` | Target: `YOUR-USERNAME.github.io`
-   - Type: `A` | Name: `@` | IPs: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+## 🔤 Adding a Custom Domain (e.g. epikconsulting.com)
+1. Buy a domain from Namecheap, GoDaddy, or Cloudflare
+2. In GitHub Pages settings, enter your custom domain
+3. In your domain provider, add a CNAME record pointing to:
+   `YOUR-USERNAME.github.io`
 4. Wait up to 24 hours for DNS to propagate
 
 ---
 
-## 📊 Adding Google Analytics (free, see who visits)
+## 🎨 Tweaks Panel
+The **Tweaks** button (visible in the design tool) controls:
+- Accent color, nav color, section backgrounds
+- Hero text, overlay darkness, height
+- Ticker style and speed
+- Font family, button radius
+- Section padding, topbar visibility
 
-1. Go to [analytics.google.com](https://analytics.google.com) → create account → get your Measurement ID (looks like `G-XXXXXXXXXX`)
-2. Add this code to the `<head>` of each HTML file:
-   ```html
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-XXXXXXXXXX');
-   </script>
-   ```
+Changes made in the Tweaks panel are saved automatically to `epik-tweaks.jsx`.
 
 ---
 
-## 📝 Adding a New Insight Post
-
-1. Duplicate `insights.html` → rename to `insights/my-post-title.html`
-2. Edit the content
-3. Add a card linking to it in `insights.html`
-
----
-
-## 💡 When to Use Claude vs. Edit Yourself
-
-| Task | Do it yourself | Use Claude |
-|---|---|---|
-| Fix a typo or change text | ✓ GitHub editor | |
-| Swap a photo | ✓ Upload + rename | |
-| Update contact info | ✓ GitHub editor | |
-| Add an insight post | ✓ Duplicate + edit | |
-| Add a whole new page | | ✓ Claude Haiku |
-| Redesign a section | | ✓ Claude Sonnet |
-| Add new functionality | | ✓ Claude Sonnet |
+## 📞 Support
+For major redesigns or new pages, use Claude Sonnet (not Haiku) for best results.
+For simple text edits, use the GitHub editor directly — no Claude needed.
