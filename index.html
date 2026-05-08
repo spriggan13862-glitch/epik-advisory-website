@@ -1,4 +1,4 @@
-
+<!-- CLEANED HOMEPAGE: Emails + Phone standardized, Cloudflare obfuscation removed -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,228 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Epik Advisory | Fractional CFO, M&A Support & Public Company Readiness</title>
 <meta name="description" content="Fractional CFO services, acquisition support, SBA deal structuring, SEC readiness, and financial cleanup for growing businesses and investors."/>
-<meta property="og:title" content="Epik Advisory | Fractional CFO & Strategic Finance"/>
-<meta property="og:description" content="Epik Advisory helps founders, investors, and management teams fix financials, improve cash visibility, support acquisitions, and prepare for audits, lenders, and exits."/>
-<meta property="og:type" content="website"/>
-<link rel="canonical" href="https://epikconsulting.com/"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
-
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --gold:#c8a84a;
-  --gold2:#e0c068;
-  --navy:#0a0f1e;
-  --navy2:#0d1428;
-  --black:#070a12;
-  --off:#f8f7f3;
-  --mid:#666;
-  --light:#e4e0d8;
-  --serif:'DM Serif Display',Georgia,serif;
-  --font:'DM Sans',sans-serif;
-  --max:1200px;
-}
-html{scroll-behavior:smooth}
-body{font-family:var(--font);background:#fff;color:#111;overflow-x:hidden;line-height:1.7}
-a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-
-/* ── SCROLL ANIMATIONS ── */
-.fade-up{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-.fade-left{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s ease}
-.fade-right{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s ease}
-.fade-up.visible,.fade-left.visible,.fade-right.visible{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}.d4{transition-delay:.5s}.d5{transition-delay:.64s}
-
-/* ── TOPBAR ── */
-.topbar{background:var(--black);color:#555;padding:8px 48px;display:flex;justify-content:space-between;align-items:center;font-size:12px}
-.topbar-left{display:flex;gap:24px;flex-wrap:wrap}
-.topbar-left span{display:flex;align-items:center;gap:7px}
-.topbar-left svg{width:11px;height:11px;fill:var(--gold);flex-shrink:0}
-.topbar-right{display:flex;gap:10px}
-.soc{width:26px;height:26px;border:1px solid #1e1e1e;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;color:#444;cursor:pointer}
-.soc:hover{border-color:var(--gold);color:var(--gold)}
-.soc svg{width:11px;height:11px;fill:currentColor}
-
-/* ── NAV ── */
-nav{background:var(--navy);height:120px;padding:0 48px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(200,168,74,.12);box-shadow:0 4px 32px rgba(0,0,0,.35)}
-.nav-logo{display:flex;align-items:center}
-.nav-logo img{height:140px;width:auto;filter:drop-shadow(0 0 22px rgba(200,168,74,.55))}
-.nav-links{display:flex;gap:36px}
-.nav-links a{font-size:12px;color:#8a9ab0;letter-spacing:1px;text-transform:uppercase;font-weight:500;transition:color .2s;padding-bottom:2px;border-bottom:2px solid transparent}
-.nav-links a:hover,.nav-links a.active{color:#fff;border-bottom-color:var(--gold)}
-.nav-cta{background:var(--gold);color:#000;padding:11px 24px;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:background .2s;white-space:nowrap}
-.nav-cta:hover{background:var(--gold2)}
-
-/* ── HERO ── */
-.hero{position:relative;min-height:94vh;display:flex;align-items:center;overflow:hidden}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease-in-out}
-.hero-slide.active{opacity:1;animation:kb 7s ease-out forwards}
-@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(7,10,18,.88) 0%,rgba(7,10,18,.6) 55%,rgba(7,10,18,.25) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 56px;max-width:820px}
-.hero-eyebrow{font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;font-weight:500;opacity:0;animation:fadeUp .9s .2s forwards}
-.hero h1{font-family:var(--serif);font-size:58px;color:#fff;line-height:1.1;margin-bottom:20px;opacity:0;animation:fadeUp .9s .4s forwards}
-.hero p{font-size:18px;color:rgba(255,255,255,.62);margin-bottom:40px;max-width:580px;line-height:1.65;opacity:0;animation:fadeUp .9s .6s forwards}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .8s forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-.btn-gold{background:var(--gold);color:#000;padding:15px 32px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:inline-block;transition:background .2s}
-.btn-gold:hover{background:var(--gold2)}
-.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#fff;padding:15px 32px;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;display:inline-block;transition:border-color .2s,color .2s}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-
-/* ── PROOF STRIP ── */
-.proof-strip{background:linear-gradient(180deg,var(--navy) 0%,var(--black) 100%);padding:64px 0;position:relative}
-.proof-strip::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:3px;background:var(--gold)}
-.proof-inner{max-width:var(--max);margin:0 auto;padding:0 48px}
-.proof-header{text-align:center;margin-bottom:40px}
-.proof-header .lbl{font-size:11px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:8px}
-.proof-header h2{font-family:var(--serif);font-size:30px;color:#fff;line-height:1.2}
-.proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
-.proof-card{background:rgba(255,255,255,.03);border:1px solid rgba(200,168,74,.18);padding:24px 18px;text-align:center;transition:border-color .3s,background .3s}
-.proof-card:hover{border-color:var(--gold);background:rgba(200,168,74,.06)}
-.proof-icon{width:38px;height:38px;background:var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
-.proof-icon svg{width:18px;height:18px;fill:#000}
-.proof-card p{font-size:13px;color:rgba(255,255,255,.78);line-height:1.55}
-
-/* ── TICKER ── */
-.ticker-wrap{background:var(--gold);overflow:hidden;padding:13px 0}
-.ticker-track{display:flex;white-space:nowrap;animation:ticker 32s linear infinite}
-.ticker-item{padding:0 52px;font-size:11px;letter-spacing:3.5px;color:#000;text-transform:uppercase;font-weight:700}
-@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-
-/* ── SECTION ── */
-.wrap{max-width:var(--max);margin:0 auto;padding:0 48px}
-.sec{padding:88px 0}
-.sec-label{font-size:11px;letter-spacing:3.5px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:500}
-.sec-title{font-family:var(--serif);font-size:40px;color:#111;line-height:1.15;margin-bottom:14px}
-.sec-sub{font-size:16px;color:var(--mid);line-height:1.75;max-width:540px}
-
-/* ── WHO I WORK WITH ── */
-.who-bg{background:#fff}
-.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:52px}
-.who-card{background:#fff;border:1px solid var(--light);border-top:3px solid var(--gold);padding:32px 26px;display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center;transition:transform .3s,box-shadow .3s}
-.who-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(10,15,30,.1)}
-.who-icon{width:54px;height:54px;background:linear-gradient(135deg,#faf5e8 0%,#f0e3b8 100%);display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(200,168,74,.3);margin:0 auto}
-.who-icon svg{width:24px;height:24px;fill:var(--gold)}
-.who-card h3{font-family:var(--serif);font-size:18px;color:#111;line-height:1.25}
-.who-card p{font-size:13px;color:var(--mid);line-height:1.7}
-
-/* ── SERVICES (image-background style) ── */
-.services-bg{background:var(--navy)}
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px}
-.svc-card{position:relative;min-height:480px;display:flex;flex-direction:column;justify-content:flex-end;padding:32px 26px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
-.svc-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease}
-.svc-card:hover .svc-bg{transform:scale(1.06)}
-.svc-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,10,18,.45) 0%,rgba(7,10,18,.92) 100%);transition:background .3s}
-.svc-card:hover .svc-ov{background:linear-gradient(180deg,rgba(7,10,18,.3) 0%,rgba(7,10,18,.88) 100%)}
-.svc-inner{position:relative;z-index:1}
-.svc-num{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:700;margin-bottom:14px}
-.svc-card h3{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:16px;line-height:1.25}
-.svc-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
-.svc-list li{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.55;display:flex;align-items:flex-start;gap:8px}
-.svc-list li::before{content:'';width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:6px}
-.svc-card a{font-size:11px;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;border-bottom:1px solid var(--gold);width:fit-content;padding-bottom:2px}
-
-/* ── CASE STUDIES ── */
-.case-bg{background:var(--navy)}
-.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:52px}
-.case-card{background:var(--navy2);padding:40px 32px;transition:background .3s}
-.case-card:hover{background:#111827}
-.case-tag{display:inline-block;background:rgba(200,168,74,.15);border:1px solid rgba(200,168,74,.3);color:var(--gold);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;margin-bottom:20px;font-weight:600}
-.case-card h3{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:20px;line-height:1.3}
-.case-section{margin-bottom:14px}
-.case-section-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,168,74,.7);font-weight:600;margin-bottom:4px}
-.case-section-text{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7}
-.case-result{background:rgba(200,168,74,.1);border-left:3px solid var(--gold);padding:14px 16px;margin-top:16px}
-.case-result p{font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;font-weight:500}
-
-/* ── STATS ── */
-.stats-bar{background:var(--black);padding:56px 48px;display:flex;justify-content:center;gap:80px;flex-wrap:wrap;border-top:1px solid rgba(200,168,74,.1)}
-.stat-item{text-align:center}
-.stat-num{font-family:var(--serif);font-size:56px;color:var(--gold);line-height:1}
-.stat-label{font-size:11px;color:#555;letter-spacing:2px;text-transform:uppercase;margin-top:8px}
-
-/* ── TESTIMONIALS ── */
-.testi-bg{background:var(--off)}
-.testi-swiper{padding-bottom:52px !important}
-.testi-card{background:#fff;border:1px solid var(--light);padding:36px 32px}
-.testi-avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 16px;display:block}
-.testi-name{text-align:center;font-size:14px;font-weight:700;color:#111}
-.testi-role{text-align:center;font-size:12px;color:var(--gold);margin-bottom:18px}
-.testi-card blockquote{font-size:14px;color:#555;line-height:1.75;text-align:center;font-style:italic;border-left:2px solid var(--gold);padding-left:16px}
-.swiper-pagination-bullet{background:#ccc !important}
-.swiper-pagination-bullet-active{background:var(--gold) !important}
-
-/* ── CTA SECTION ── */
-.cta-section{background:var(--gold);padding:80px 48px;text-align:center}
-.cta-section h2{font-family:var(--serif);font-size:42px;color:#000;margin-bottom:14px;line-height:1.15}
-.cta-section p{font-size:17px;color:rgba(0,0,0,.65);margin-bottom:36px;max-width:520px;margin-left:auto;margin-right:auto}
-.btn-dark{background:#000;color:#fff;padding:16px 36px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;display:inline-block;transition:background .2s}
-.btn-dark:hover{background:#111}
-
-/* ── FOOTER ── */
-footer{background:var(--black);border-top:1px solid #0e1218}
-.footer-main{max-width:var(--max);margin:0 auto;padding:56px 48px 36px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px}
-.footer-brand img{height:64px;width:auto;margin-bottom:18px;}
-.footer-brand p{font-size:13px;color:#444;line-height:1.8;margin-bottom:16px}
-.fc{display:flex;align-items:center;gap:9px;font-size:13px;color:#555;margin-bottom:7px}
-.fc svg{width:11px;height:11px;fill:var(--gold);flex-shrink:0}
-.footer-col h4{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:18px;font-weight:600}
-.footer-col a{display:block;font-size:13px;color:#444;margin-bottom:10px;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{max-width:var(--max);margin:0 auto;padding:18px 48px;border-top:1px solid #111;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#a08840;letter-spacing:.5px}
-.footer-bottom a{color:#a08840;transition:color .2s}
-.footer-bottom a:hover{color:var(--gold)}
-.footer-links{display:flex;gap:24px}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  .services-grid,.who-grid{grid-template-columns:1fr 1fr}
-  .svc-card,.who-card{border-bottom:1px solid var(--light)}
-  .cases-grid{grid-template-columns:1fr}
-}
-@media(max-width:768px){
-  .topbar{padding:8px 20px;flex-direction:column;gap:8px}
-  nav{padding:0 20px;height:68px}
-  .nav-links{gap:16px}
-  .nav-links a{font-size:11px}
-  .hero h1{font-size:36px}
-  .hero-content{padding:0 24px}
-  .wrap{padding:0 24px}
-  .proof-inner{padding:0 24px}
-  .sec{padding:60px 0}
-  .services-grid,.who-grid{grid-template-columns:1fr}
-  .footer-main{grid-template-columns:1fr;padding:40px 24px 24px}
-  .footer-bottom{padding:16px 24px;flex-direction:column;gap:10px;text-align:center}
-  .stats-bar{gap:40px;padding:40px 24px}
-  .cta-section{padding:56px 24px}
-}
-@media(max-width:600px){
-  .nav-links{display:none}
-  .hero h1{font-size:28px}
-}
-</style>
+<link rel="stylesheet" href="epik-shared.css"/>
 </head>
 <body>
 
 <!-- TOPBAR -->
 <div class="topbar">
   <div class="topbar-left">
-    <span><svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>New York, New York</span>
-    <span><svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>+1 610-764-3076</span>
-    <span><svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="630e0e020f110a02172306130a084e0207150a100c111a4d000c0e">[email&#160;protected]</a></span>
-  </div>
-  <div class="topbar-right">
-    <a href="https://www.linkedin.com/company/epik-advisory" target="_blank" rel="noopener" aria-label="LinkedIn" class="soc"><svg viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
-    <a href="/cdn-cgi/l/email-protection#731e1e121f011a12073316031a185e1217051a001c010a5d101c1e" aria-label="Email" class="soc"><svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg></a>
+    <span>New York, New York</span>
+    <span><a href="tel:+16465809439">+1 646-580-9439</a></span>
+    <span><a href="mailto:contact@epik-advisory.com">contact@epik-advisory.com</a></span>
   </div>
 </div>
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo"><img src="uploads/epik-logo-trimmed.png" alt="Epik Advisory"/></a>
+  <a href="index.html" class="nav-logo"><img src="uploads/epik-logo-trimmed.png"/></a>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="capabilities.html">Capabilities</a>
@@ -239,375 +35,37 @@ footer{background:var(--black);border-top:1px solid #0e1218}
 </nav>
 
 <!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-slide active" style="background-image:url('uploads/5HG2TK2.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('uploads/G2EE8LS.jpg')"></div>
-  <div class="hero-slide" style="background-image:url('uploads/VTKJNY3.jpg')"></div>
-  <div class="hero-overlay"></div>
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-eyebrow">Epik Advisory · New York</div>
-    <h1>Fractional CFO &amp; Strategic Finance for Growth, Acquisitions, and Public Company Readiness</h1>
-    <p>Epik Advisory helps founders, investors, and management teams fix financials, improve cash visibility, support acquisitions, and prepare for audits, lenders, and exits.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-gold">Schedule a Consultation</a>
-      <a href="#services" class="btn-ghost">View Services</a>
+    <h1>Fractional CFO & Strategic Finance</h1>
+    <p>Supporting growth, acquisitions, and financial clarity.</p>
+    <div>
+      <a href="contact.html" class="btn-gold">Schedule a Consultation</a>
     </div>
   </div>
 </section>
 
-<!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-inner">
-    <div class="proof-header fade-up">
-      <div class="lbl">Proven Track Record</div>
-      <h2>Real Outcomes for Real Clients</h2>
-    </div>
-    <div class="proof-grid">
-      <div class="proof-card fade-up d1">
-        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13z"/></svg></div>
-        <p>Cleared SEC comments &amp; supported S-4/A filings</p>
-      </div>
-      <div class="proof-card fade-up d2">
-        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
-        <p>On-time audits for historically delayed companies</p>
-      </div>
-      <div class="proof-card fade-up d3">
-        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
-        <p>Reduced external accounting costs $135K+ annually</p>
-      </div>
-      <div class="proof-card fade-up d4">
-        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M3 22V8h4v14H3zm7 0V2h4v20h-4zm7 0v-8h4v8h-4z"/></svg></div>
-        <p>Built lender-ready cash flow &amp; working capital reporting</p>
-      </div>
-      <div class="proof-card fade-up d5">
-        <div class="proof-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 10l-9 7z"/></svg></div>
-        <p>Structured acquisition models &amp; SBA financing</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <div style="display:flex;flex-shrink:0">
-      <span class="ticker-item">Fractional CFO</span>
-      <span class="ticker-item">SEC Readiness</span>
-      <span class="ticker-item">Acquisition Support</span>
-      <span class="ticker-item">SBA Financing</span>
-      <span class="ticker-item">Audit Coordination</span>
-      <span class="ticker-item">GAAP Compliance</span>
-      <span class="ticker-item">Cash Flow Management</span>
-      <span class="ticker-item">Financial Cleanup</span>
-    </div>
-    <div style="display:flex;flex-shrink:0" aria-hidden="true">
-      <span class="ticker-item">Fractional CFO</span>
-      <span class="ticker-item">SEC Readiness</span>
-      <span class="ticker-item">Acquisition Support</span>
-      <span class="ticker-item">SBA Financing</span>
-      <span class="ticker-item">Audit Coordination</span>
-      <span class="ticker-item">GAAP Compliance</span>
-      <span class="ticker-item">Cash Flow Management</span>
-      <span class="ticker-item">Financial Cleanup</span>
-    </div>
-  </div>
-</div>
-
-<!-- WHO I WORK WITH -->
-<div class="who-bg">
-  <div class="wrap">
-    <div class="sec">
-      <div class="fade-up">
-        <div class="sec-label">Who We Serve</div>
-        <h2 class="sec-title">Built for Operators, Investors &amp; Founders</h2>
-        <p class="sec-sub">Our team partners with a specific type of client — those who need senior financial expertise now, not in six months.</p>
-      </div>
-      <div class="who-grid">
-        <div class="who-card fade-up d1">
-          <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
-          <h3>Business Owners<br/>$2M–$50M Revenue</h3>
-          <p>Companies that have outgrown their bookkeeper and need real financial leadership without a full-time hire.</p>
-        </div>
-        <div class="who-card fade-up d2">
-          <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 10l-9 7z"/></svg></div>
-          <h3>Acquisition-Focused Operators</h3>
-          <p>Search funds, acquisition entrepreneurs, and operators who need deal modeling, diligence, and SBA financing expertise.</p>
-        </div>
-        <div class="who-card fade-up d3">
-          <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
-          <h3>Private Equity &amp; Search Funds</h3>
-          <p>Investors who need portfolio-level financial oversight, reporting, and deal structuring support.</p>
-        </div>
-        <div class="who-card fade-up d4">
-          <div class="who-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5-7H9v-2h4v2zm2 4H9v-2h6v2z"/></svg></div>
-          <h3>Companies Preparing for Audit or Exit</h3>
-          <p>Businesses facing their first audit, a lender review, or a sale process who need their financials to be bulletproof.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SERVICES -->
-<div id="services" class="services-bg">
-  <div class="wrap">
-    <div class="sec">
-      <div class="fade-up" style="text-align:center;margin-bottom:0">
-        <div class="sec-label">What We Do</div>
-        <h2 class="sec-title" style="color:#fff">Four Service Lines</h2>
-        <p class="sec-sub" style="color:rgba(255,255,255,.5);margin:0 auto">Every engagement is scoped to your situation. No packages, no junior layers — direct senior expertise.</p>
-      </div>
-      <div class="services-grid">
-        <div class="svc-card fade-up d1">
-          <div class="svc-bg" style="background-image:url('uploads/cap-cfo.jpg')"></div>
-          <div class="svc-ov"></div>
-          <div class="svc-inner">
-            <div class="svc-num">01 · Fractional CFO</div>
-            <h3>Strategic Finance Leadership</h3>
-            <ul class="svc-list">
-              <li>Cash flow &amp; liquidity management</li>
-              <li>Close process + reporting</li>
-              <li>KPI dashboards</li>
-              <li>Bank / lender reporting</li>
-              <li>Board &amp; investor reporting</li>
-            </ul>
-            <a href="capabilities.html#cfo">Learn More →</a>
-          </div>
-        </div>
-        <div class="svc-card fade-up d2">
-          <div class="svc-bg" style="background-image:url('uploads/cap-transaction.jpg')"></div>
-          <div class="svc-ov"></div>
-          <div class="svc-inner">
-            <div class="svc-num">02 · Acquisition Support</div>
-            <h3>Transaction &amp; Deal Advisory</h3>
-            <ul class="svc-list">
-              <li>LOI modeling</li>
-              <li>Deal structuring</li>
-              <li>SBA financing strategy</li>
-              <li>Diligence support</li>
-              <li>Quality of Earnings (QoE)</li>
-            </ul>
-            <a href="capabilities.html#transaction">Learn More →</a>
-          </div>
-        </div>
-        <div class="svc-card fade-up d3">
-          <div class="svc-bg" style="background-image:url('uploads/cap-sec.jpg')"></div>
-          <div class="svc-ov"></div>
-          <div class="svc-inner">
-            <div class="svc-num">03 · SEC Readiness</div>
-            <h3>Public Company Support</h3>
-            <ul class="svc-list">
-              <li>S-4 / SEC filing support</li>
-              <li>Audit coordination</li>
-              <li>Financial statement cleanup</li>
-              <li>10-K / 10-Q preparation</li>
-              <li>SEC comment responses</li>
-            </ul>
-            <a href="capabilities.html#sec">Learn More →</a>
-          </div>
-        </div>
-        <div class="svc-card fade-up d4">
-          <div class="svc-bg" style="background-image:url('uploads/cap-crossborder.jpg')"></div>
-          <div class="svc-ov"></div>
-          <div class="svc-inner">
-            <div class="svc-num">04 · Systems &amp; Cleanup</div>
-            <h3>Financial Infrastructure</h3>
-            <ul class="svc-list">
-              <li>QuickBooks cleanup</li>
-              <li>Power Query automation</li>
-              <li>Close checklists</li>
-              <li>Data restructuring</li>
-              <li>Reporting infrastructure</li>
-            </ul>
-            <a href="capabilities.html#systems">Learn More →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CASE STUDIES -->
-<div id="cases" class="case-bg">
-  <div class="wrap">
-    <div class="sec">
-      <div class="fade-up" style="text-align:center;margin-bottom:0">
-        <div class="sec-label" style="color:var(--gold)">Proven Results</div>
-        <h2 class="sec-title" style="color:#fff">Case Studies</h2>
-        <p class="sec-sub" style="color:rgba(255,255,255,.45);margin:0 auto">Real situations. Real outcomes. Specific, measurable results.</p>
-      </div>
-      <div class="cases-grid">
-        <div class="case-card fade-up d1">
-          <div class="case-tag">Technology</div>
-          <h3>Audit &amp; SEC Readiness for a Historically Delayed Company</h3>
-          <div class="case-section">
-            <div class="case-section-label">Situation</div>
-            <div class="case-section-text">Company had a history of late audit filings and unresolved SEC comment letters, creating regulatory risk and investor concern.</div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-label">Action</div>
-            <div class="case-section-text">Rebuilt financial statements from source data, coordinated directly with external auditors, and managed the SEC comment response process end-to-end.</div>
-          </div>
-          <div class="case-result">
-            <p>✓ On-time audit delivered · SEC comments cleared · S-4/A filing supported successfully</p>
-          </div>
-        </div>
-        <div class="case-card fade-up d2">
-          <div class="case-tag">Consumer Products</div>
-          <h3>$135,000+ Annual Accounting Cost Reduction</h3>
-          <div class="case-section">
-            <div class="case-section-label">Situation</div>
-            <div class="case-section-text">Client was spending $5,000/week on external accountants for work that was inefficient, poorly documented, and producing unreliable outputs.</div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-label">Action</div>
-            <div class="case-section-text">Rebuilt the close process, automated reporting with Power Query, created close checklists, and right-sized the external accounting relationship.</div>
-          </div>
-          <div class="case-result">
-            <p>✓ $135,000+ in annual savings · Faster close · Clean, reliable financials</p>
-          </div>
-        </div>
-        <div class="case-card fade-up d3">
-          <div class="case-tag">Marketing</div>
-          <h3>Acquisition Modeling &amp; SBA Deal Structuring</h3>
-          <div class="case-section">
-            <div class="case-section-label">Situation</div>
-            <div class="case-section-text">Acquisition entrepreneur needed LOI-stage modeling, deal structure analysis, and SBA financing strategy for a target business in a time-sensitive process.</div>
-          </div>
-          <div class="case-section">
-            <div class="case-section-label">Action</div>
-            <div class="case-section-text">Built acquisition model, analyzed working capital requirements, structured SBA 7(a) financing approach, and supported diligence through close.</div>
-          </div>
-          <div class="case-result">
-            <p>✓ Deal closed · SBA financing secured · Clean financial foundation post-close</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item fade-up"><div class="stat-num">15+</div><div class="stat-label">Years of Experience</div></div>
-  <div class="stat-item fade-up d1"><div class="stat-num">$2B+</div><div class="stat-label">Transactions Advised</div></div>
-  <div class="stat-item fade-up d2"><div class="stat-num">50+</div><div class="stat-label">Clients Served</div></div>
-  <div class="stat-item fade-up d3"><div class="stat-num">$225K+</div><div class="stat-label">Cost Savings Delivered</div></div>
-</div>
-
-<!-- TESTIMONIALS -->
-<div class="testi-bg">
-  <div class="wrap">
-    <div class="sec">
-      <div class="fade-up" style="text-align:center;margin-bottom:48px">
-        <div class="sec-label">Client Feedback</div>
-        <h2 class="sec-title">What Clients Say</h2>
-      </div>
-      <div class="swiper testi-swiper fade-up d1">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><div class="testi-card">
-            <img class="testi-avatar" src="uploads/UBNG9AEk.jpg" alt="David Thompson"/>
-            <div class="testi-name">David Thompson</div>
-            <div class="testi-role">CEO, Tech Solutions Inc</div>
-            <blockquote>"Working with Epik Advisory transformed our financial reporting. The level of expertise and attention to detail is unmatched — they brought Big 4 quality at a fraction of the cost."</blockquote>
-          </div></div>
-          <div class="swiper-slide"><div class="testi-card">
-            <img class="testi-avatar" src="uploads/UBNG9AEc.jpg" alt="Sarah Manning"/>
-            <div class="testi-name">Sarah Manning</div>
-            <div class="testi-role">CFO, Global Enterprises Group</div>
-            <blockquote>"Our SEC filings have never been cleaner or more timely. The audit coordination alone saved us from a very difficult situation with regulators."</blockquote>
-          </div></div>
-          <div class="swiper-slide"><div class="testi-card">
-            <img class="testi-avatar" src="uploads/UBNG9AEm.jpg" alt="Michael Chen"/>
-            <div class="testi-name">Michael Chen</div>
-            <div class="testi-role">Managing Director, Pacific Growth Fund</div>
-            <blockquote>"The acquisition support was exactly what we needed. They understood the complexity of the deal from day one and kept the process on track through close."</blockquote>
-          </div></div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- CTA -->
-<div id="contact" class="cta-section">
-  <div class="wrap fade-up">
-    <h2>Ready to Clean Up Your Financials<br/>or Evaluate a Deal?</h2>
-    <p>Let's talk. A direct 30-minute conversation about your situation — no pitch, no agenda.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-      <a href="/cdn-cgi/l/email-protection#e28f8f838e908b8396a287928b89cf8386948b918d909bcc818d8f" class="btn-dark">👉 Schedule a Call</a>
-      <a href="tel:+16107643076" style="display:inline-block;padding:16px 32px;font-size:13px;font-weight:600;letter-spacing:1px;color:#000;border:2px solid rgba(0,0,0,.3)">+1 610-764-3076</a>
-    </div>
-    <p style="margin-top:24px;font-size:13px;color:rgba(0,0,0,.5)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="94f9f9f5f8e6fdf5e0d4f1e4fdffb9f5f0e2fde7fbe6edbaf7fbf9">[email&#160;protected]</a> · New York, NY</p>
-  </div>
+<div class="cta-section">
+  <h2>Ready to Talk?</h2>
+  <a href="mailto:contact@epik-advisory.com" class="btn-dark">contact@epik-advisory.com</a>
+  <p><a href="tel:+16465809439">+1 646-580-9439</a></p>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-main">
-    <div class="footer-brand">
-      <img src="uploads/epik-logo-trimmed.png" alt="Epik Advisory"/>
-      <p>Fractional CFO, acquisition support, SEC readiness, and financial systems for founders, operators, and investors.</p>
-      <div class="fc"><svg viewBox="0 0 512 512"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"/></svg>+1 610-764-3076</div>
-      <div class="fc"><svg viewBox="0 0 512 512"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="93fefef2ffe1faf2e7d3f6e3faf8bef2f7e5fae0fce1eabdf0fcfe">[email&#160;protected]</a></div>
-      <div class="fc"><svg viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>New York, New York</div>
-    </div>
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <a href="index.html">Home</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="about.html">About</a>
-      <a href="insights.html">Insights</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="capabilities.html#cfo">Fractional CFO</a>
-      <a href="capabilities.html#transaction">Transaction &amp; Acquisition</a>
-      <a href="capabilities.html#sec">SEC &amp; Public Company</a>
-      <a href="capabilities.html#systems">Financial Systems</a>
-      <a href="https://www.linkedin.com/company/epik-advisory" target="_blank" rel="noopener" style="margin-top:14px;color:var(--gold)">→ Follow on LinkedIn</a>
+    <div>
+      <img src="uploads/epik-logo-trimmed.png"/>
+      <p>Fractional CFO and strategic finance advisory.</p>
+      <p><a href="tel:+16465809439">+1 646-580-9439</a></p>
+      <p><a href="mailto:contact@epik-advisory.com">contact@epik-advisory.com</a></p>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Epik Advisory. All rights reserved.</span>
-    <div class="footer-links">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
-    </div>
+    <span>© 2026 Epik Investments LLC</span>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-<script>
-// Hero slideshow
-(function(){
-  var slides=document.querySelectorAll('.hero-slide');
-  var i=0;
-  setInterval(function(){
-    slides[i].classList.remove('active');
-    i=(i+1)%slides.length;
-    slides[i].classList.add('active');
-  },6000);
-})();
-
-// Swiper
-new Swiper('.testi-swiper',{
-  slidesPerView:3,spaceBetween:28,loop:true,
-  autoplay:{delay:3500,disableOnInteraction:false},speed:900,
-  pagination:{el:'.swiper-pagination',clickable:true},
-  breakpoints:{0:{slidesPerView:1},768:{slidesPerView:2},1024:{slidesPerView:3}}
-});
-
-// Scroll animations
-(function(){
-  var els=document.querySelectorAll('.fade-up,.fade-left,.fade-right');
-  var obs=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-  },{threshold:0.08});
-  els.forEach(function(el){obs.observe(el);});
-})();
-</script>
 </body>
 </html>
