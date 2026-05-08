@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180" role="img" aria-labelledby="title desc">
+  <title id="title">Epik Advisory Header Logo Light</title>
+  <desc id="desc">Light wordmark for dark website header: EPIK Advisory</desc>
+  <rect width="900" height="180" fill="none"/>
+  <g transform="translate(70,42)">
+    <text x="0" y="58" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="600" letter-spacing="32" fill="#F7F7F4">EPI</text>
+    <text x="370" y="58" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="0" fill="#C8A84A">K</text>
+    <text x="3" y="122" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="500" letter-spacing="34" fill="#F7F7F4">ADVISORY</text>
+  </g>
+</svg>
