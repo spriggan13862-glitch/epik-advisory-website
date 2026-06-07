@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="epik-shared.css"/>
 <style>
 .about-intro{display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:center}
-.about-portrait{aspect-ratio:4/5;background-size:cover;background-position:center;position:relative}
+.about-portrait{aspect-ratio:4/5;background-size:cover;background-position:center top;position:relative}
 .about-portrait::after{content:'';position:absolute;bottom:-14px;right:-14px;width:120px;height:120px;border:2px solid var(--gold);z-index:-1}
 .about-bio h2{font-family:var(--serif);font-size:42px;color:#111;line-height:1.15;margin-bottom:18px}
 .about-bio p{font-size:15.5px;color:#333;line-height:1.85;margin-bottom:18px}
@@ -54,6 +54,7 @@
 
 @media(max-width:900px){
   .about-intro{grid-template-columns:1fr;gap:32px}
+  .about-portrait{aspect-ratio:1/1;max-width:380px}
   .values-grid,.experience-grid{grid-template-columns:1fr}  .exp-cell{border-right:none;border-bottom:1px solid var(--light)}
   .cred{grid-template-columns:60px 1fr;gap:14px}
   .cred-org{grid-column:1/-1;text-align:left;font-size:11px}
