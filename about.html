@@ -39,7 +39,7 @@
 .value-card h3{font-size:17px;font-weight:700;color:#fff;margin-bottom:12px}
 .value-card p{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.7}
 
-.experience-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:52px;border:1px solid var(--light)}
+.experience-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;margin-top:52px;border:1px solid var(--light)}
 .exp-cell{padding:32px 28px;border-right:1px solid var(--light);text-align:center}
 .exp-cell:last-child{border-right:none}
 .exp-num{font-family:var(--serif);font-size:48px;color:var(--gold);line-height:1;margin-bottom:6px}
@@ -54,8 +54,7 @@
 
 @media(max-width:900px){
   .about-intro{grid-template-columns:1fr;gap:32px}
-  .values-grid,.experience-grid{grid-template-columns:1fr}
-  .exp-cell{border-right:none;border-bottom:1px solid var(--light)}
+  .values-grid,.experience-grid{grid-template-columns:1fr}  .exp-cell{border-right:none;border-bottom:1px solid var(--light)}
   .cred{grid-template-columns:60px 1fr;gap:14px}
   .cred-org{grid-column:1/-1;text-align:left;font-size:11px}
 }
@@ -74,9 +73,16 @@
   </div>
 </section>
 
-<!-- INTRO -->
+<!-- LEADERSHIP TEAM -->
 <div class="wrap">
-  <div class="sec">
+  <div class="sec" style="padding-bottom:16px">
+    <div class="fade-up" style="text-align:center"><div class="sec-label">Our Team</div><h2 class="sec-title">Leadership Team</h2><p class="sec-sub" style="margin:0 auto">A boutique advisory firm led by two senior finance executives who provide direct access to senior expertise without the bureaucracy of a large consulting organization.</p></div>
+  </div>
+</div>
+
+<!-- MATTHEW -->
+<div class="wrap">
+  <div class="sec" style="padding-top:32px">
     <div class="about-intro">
       <div class="about-portrait fade-up" style="background-image:url('uploads/matthew-malriat.jpg')"></div>
       <div class="about-bio fade-up d1">
@@ -85,9 +91,25 @@
         <p>I started Epik Advisory because growing companies kept asking me for the same thing: senior financial leadership without a long-term commitment, and without the agency layers that dilute it.</p>
         <p>As a <strong>CPA</strong> and former <strong>KPMG Deal Advisory Director</strong>, I've worked across public company SEC reporting, M&amp;A transactions, SBA-financed acquisitions, and operational CFO work — including serving as <strong>CEO &amp; CFO of a Nasdaq-listed SPAC</strong>. I've cleared SEC comment letters, delivered on-time audits for historically delayed companies, structured deals through close, and rebuilt back-offices that were costing clients hundreds of thousands a year more than they should.</p>
         <p>The thread through all of it: getting the financial picture right, then making it useful for decisions. That's what I do.</p>
-        <p>Every engagement at Epik Advisory is led directly by Matthew Malriat. Clients benefit from senior-level involvement throughout the engagement, with specialized resources brought in when appropriate to support project execution while maintaining a single point of accountability.</p>
+        <p>Every engagement at Epik Advisory receives direct involvement from its leadership team. Clients benefit from senior-level participation throughout the engagement, with specialized resources brought in when appropriate to support execution while maintaining a single point of accountability.</p>
         <div class="about-sig">— Matthew Malriat, CPA<small>Founder &amp; Principal, Epik Advisory</small></div>
-        <div class="cred-chips"><span class="cred-chip">CPA</span><span class="cred-chip">Ex-KPMG Deal Advisory Director</span><span class="cred-chip">Former Nasdaq SPAC CEO &amp; CFO</span><span class="cred-chip">Public Company Reporting</span></div>
+        <div class="cred-chips"><span class="cred-chip">CPA</span><span class="cred-chip">Ex-KPMG Deal Advisory Director</span><span class="cred-chip">Former CEO &amp; CFO of Nasdaq-Listed SPAC</span><span class="cred-chip">Public Company Reporting</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ISAAC -->
+<div class="wrap">
+  <div class="sec" style="padding-top:0">
+    <div class="about-intro">
+      <div class="about-portrait fade-up" style="background-image:url('uploads/isaac-freites.jpg')"></div>
+      <div class="about-bio fade-up d1">
+        <div class="sec-label">Managing Director</div>
+        <h2>Isaac Freites</h2>
+        <p>Isaac Freites is a senior finance executive with experience serving in CFO, Corporate Controller, and finance transformation leadership roles across growth companies, capital markets initiatives, M&amp;A-related projects, and operational finance environments. He has helped organizations strengthen reporting processes, improve financial visibility, support transaction readiness, and build scalable finance functions capable of supporting growth.</p>
+        <p>At Epik Advisory, Isaac works closely with clients to improve financial infrastructure, strengthen close and reporting processes, enhance forecasting and cash visibility, and support lender, investor, and transaction-related initiatives. His experience spans both strategic finance leadership and operational execution, helping organizations translate financial information into practical decision-making tools.</p>
+        <div class="cred-chips"><span class="cred-chip">CFO Leadership</span><span class="cred-chip">Corporate Controller</span><span class="cred-chip">Finance Transformation</span><span class="cred-chip">Capital Markets Readiness</span><span class="cred-chip">M&amp;A Experience</span><span class="cred-chip">Operational Finance</span></div>
       </div>
     </div>
   </div>
@@ -116,6 +138,11 @@
         <div class="exp-label">Cost Savings Delivered</div>
         <div class="exp-desc">Including $135K/yr accounting and $15K/qtr SPAC reporting savings.</div>
       </div>
+      <div class="exp-cell fade-up d4">
+        <div class="exp-num" style="font-size:26px;line-height:1.15">Public &amp;<br/>Private</div>
+        <div class="exp-label">Markets Experience</div>
+        <div class="exp-desc">Supporting both operating companies and public-market reporting environments — acquisitions, SEC reporting, capital markets initiatives, and operational finance leadership.</div>
+      </div>
     </div>
   </div>
 </div>
@@ -139,13 +166,13 @@
     <div class="values-grid">
       <div class="value-card fade-up d1">
         <div class="value-num">01</div>
-        <h3>Direct Senior Work</h3>
+        <h3>Direct Senior Involvement</h3>
         <p>Engagements are led directly by senior leadership — not handed down to junior consultants billing hours behind the scenes. You get a single point of accountability from start to finish.</p>
       </div>
       <div class="value-card fade-up d2">
         <div class="value-num">02</div>
         <h3>Specific, Not Generic</h3>
-        <p>Every engagement is scoped to your situation. No retainers without a clear scope and no generic CFO frameworks — the work is shaped by what you actually need to ship.</p>
+        <p>Every engagement is scoped to your situation. No unclear retainers and no generic CFO frameworks — the work is shaped by what your business actually needs to accomplish.</p>
       </div>
       <div class="value-card fade-up d3">
         <div class="value-num">03</div>
